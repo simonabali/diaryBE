@@ -130,29 +130,30 @@ def diary_entry_delete(unique_id):
 	return jsonify(response), 201
 
 
-@app.route('/')
-def home():
-if not session.get('logged_in'):
-return render_template('login.html')
-else:
-return render_template('index.html')
+# @app.route('/')
+# @cross_origin()
+# def home():
+# if not session.get('logged_in'):
+# return render_template('login.html')
+# else:
+# return render_template('index.html')
 
-request.form['password'] == 'founders'
-request.form['username'] == 'simona'
+# request.form['password'] == 'founders'
+# request.form['username'] == 'simona'
 
 
-@app.route('/login', methods=['POST'])
-def do_admin_login():
-if request.form['password'] == 'password' and request.form['username'] == 'admin':
-session['logged_in'] = True
-return render_template('diary.html')
-else:
-flash('wrong password!')
-return home()
+# @app.route('/login', methods=['POST'])
+# def do_admin_login():
+# if request.form['password'] == 'password' and request.form['username'] == 'admin':
+# session['logged_in'] = True
+# return render_template('diary.html')
+# else:
+# flash('wrong password!')
+# return home()
 
-if __name__ == "__main__":
-app.secret_key = os.urandom(12)
-app.run(debug=True,host='0.0.0.0', port=4000)
+# if __name__ == "__main__":
+# app.secret_key = os.urandom(12)
+# app.run(debug=True,host='0.0.0.0', port=4000)
 
 
 
